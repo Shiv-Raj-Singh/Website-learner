@@ -18,9 +18,9 @@ export default function Profile() {
             Phone :  {user.phone}
         </div>
         <div className="field">
-            E-mail  :  {user.name}
+            E-mail  :  {user.email}
         </div>
-     <button type="submit" className="btn btn-primary" id='btn1' onClick={()=>{
+     <button type="submit" className="btn btn1 btn-primary" id='btn2' onClick={()=>{
         localStorage.clear()
         Nav('/')
      }}  >Log Out</button>

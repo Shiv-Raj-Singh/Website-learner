@@ -25,18 +25,20 @@ const Login = () => {
 
     const handleSubmit = async  (e)=>{
         e.preventDefault()
-        // try {
-        //     console.log(user);
-        //     const response = await axios.post("https://chatting-app1.onrender.com/login" , user)
-        //     const data = await response.data
-        //     console.log(data);
-        //     data.status&&toast.success(data.message , {position : 'top-center'}) 
-        //     data.status && clickHandler(data.data)
-        //     // data.status ? alert(data.message) : alert(data.message) 
+        try {
+        
+            console.log(user);
+            const response = await axios.post("https://website-learner.onrender.com/login" , user)
+            const data = await response.data
+            console.log(data);
+            data.status&&toast.success(data.message , {position : 'top-center'}) 
+            localStorage.setItem('user' , JSON.stringify(data.data)) 
+            Navigate('/Profile')
+            // data.status ? alert(data.message) : alert(data.message) 
             
-        // } catch (err) {
-        //     err.response ? toast.error(err.response.data.message ,  {position : 'top-center' , theme: 'dark'}) :toast.error(err.message)
-        // }
+        } catch (err) {
+            err.response ? toast.error(err.response.data.message ,  {position : 'top-center' , theme: 'dark'}) :toast.error(err.message)
+        }
     }
 
 
@@ -48,7 +50,7 @@ const Login = () => {
                     <h3 className="h3 text-center">Login Here </h3>
             
                     <div className="mb-3 ">
-                        <input type="tel" name="phone" value={user.email} onChange={handleOnChange}  className="input form-control mt-3" placeholder='Enter Your Email' required id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                        <input type="email" name="email" value={user.email} onChange={handleOnChange}  className="input form-control mt-3" placeholder='Enter Your Email' required id="exampleInputEmail1" aria-describedby="emailHelp"/>
                     </div>
                     <div className="mb-3">
                         <input type="password" value={user.password} name="password" onChange={handleOnChange}  className="input form-control mt-4" required placeholder='Enter Your Password' id="exampleInputPassword1" />

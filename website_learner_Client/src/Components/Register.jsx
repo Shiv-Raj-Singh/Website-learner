@@ -5,9 +5,10 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { reducer } from '../App';
-import uploadFile from './UploadFiles';
 
-const dummyUser = {name : '' ,  phone : '' , email: '' , password : '' , profilePic:''}
+
+
+const dummyUser = {name : '' ,  phone : '' , email: '' , password : ''}
 
 
 const Register = () => {
@@ -21,30 +22,34 @@ const Register = () => {
     }
 
     const handleOnChange = (e)=>{
+        console.log(e.target.files);
         dispatch({
-            type : 'UPDATE' , Key : e.target.name , payload : e.target.value
+            type : 'UPDATE' , Key : e.target.name , payload : e.target.value 
         })
     }
 
+
+
     const handleSubmit = async  (e)=>{
+
+        console.log(  'inside submot button', user);
         e.preventDefault()
-        // const url = await uploadFile(pic)
-        // console.log(url);
-        // localStorage.setItem('user' , JSON.stringify(user))
-        // Navigate('/Profile')
-        // try {
-        //     const response = await axios.post("https://chatting-app1.onrender.com/register" , user)
-        //     console.log(response);
-        //     const data = await response.data
-        //     console.log(response);
-        //     data.status && clickHandler()
-        //     data? toast.success("Submit-Successfully !" ,{theme : 'green', position: "top-center"}) : alert(data.msg) 
+        try {
+            const response = await axios.post("https://website-learner.onrender.com/register" , user)
+            console.log(response);
+            const data = await response.data
+            console.log(response);
+            data.status && clickHandler()
+            data? toast.success("Submit-Successfully !" ,{theme : 'green', position: "top-center"}) : alert(data.msg) 
+            localStorage.setItem('user' , JSON.stringify(data.data)) 
+            Navigate('/Profile')
             
-        // } catch (err) {
-        //     setUser(dummyUser)
-        //     err.response ? toast.error(err.response.data.message ,{theme : 'dark', position: "top-center"}) :toast.error(err.message ,{position: "top-center"})
-        //     console.log(err);
-        // }
+        } catch (err) {
+            // setUser(dummyUser)
+            console.log(err);
+            err.response ? toast.error(err.response.data.message ,{theme : 'dark', position: "top-center"}) :toast.error(err.message ,{position: "top-center"})
+            console.log(err);
+        }
     
     }
 
@@ -70,12 +75,6 @@ const Register = () => {
                     <div className="mb-2">
                         <input type="password"  value={user.password} className="form-control" required placeholder='Enter Your Password' name="password" onChange={handleOnChange}  id="exampleInputPassword1" />
                     </div>
-                    <div className="mb-2">
-                        <input type="file"  className="form-control" required placeholder='Choose Your Profile Picture' onChange={(e)=>{
-                            console.log(e.target.files[0]);
-                            setPic(e.target.files[0])
-                        }}  id="exampleInputPassword1" />
-                    </div>
   
                     <div className="mb-3 form-check">
                         <div className='d-flex footer justify-content-between'>
@@ -99,3 +98,9 @@ const Register = () => {
 }
 
 export default Register
+
+
+// onChange={(e)=>{
+//     console.log(e.target.files[0]);
+//     setPic(e.target.files[0])
+// }} 

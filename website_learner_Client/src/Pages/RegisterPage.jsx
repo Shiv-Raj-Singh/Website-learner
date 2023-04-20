@@ -1,10 +1,16 @@
-import Navbar from "../Components/Navbar";
+
 import Register from "../Components/Register";
+import ProfilePage from "./ProfilePage";
+
+
 
 function RegisterPage() {
+const data =     JSON.parse(localStorage.getItem('user'))
     return (<>
-     <Register/>    
-    
+    {
+        data ? <ProfilePage/> : <Register/>    
+    }
+     
     </>  );
 }
 

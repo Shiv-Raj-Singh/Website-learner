@@ -18,7 +18,7 @@ function ProfilePage() {
 
     return (<>
      {
-        user ? <div>  <Navbar/> <Profile/>   </div>   : <RegisterPage/>
+        user ? <div>  <Profile/>   </div>   : <RegisterPage/>
      }
  
     </>  );

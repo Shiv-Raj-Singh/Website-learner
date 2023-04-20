@@ -6,11 +6,13 @@
 
 .greeting{
     font-size: 1.9em;
-    color: rgb(204, 16, 16);
+    color: rgb(188, 236, 14);
     text-align: center;
-    margin: 3% auto;
+    margin: 2% auto;
+    margin-top: 5%;
     font-weight: 700;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
 }
 .profile{
     /* border: 2px solid rgb(238, 144, 144); */
@@ -30,7 +32,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-#btn1{
+#btn2{
     color: rgb(176, 247, 11);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;    
@@ -41,12 +43,14 @@
     width: 20vw;
     padding: 0.5% , 2%;
     margin: auto;
+    border-radius: 5%;
+    margin-top: 7%;
   } 
 
-#btn:hover{
-    color: rgb(9, 10, 7);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-  } 
+#btn2:hover{
+    color: gold;
+    background-color: rgb(44, 37, 37);
+}
 
 @media (max-width : 600px) {
     *{
@@ -57,7 +61,7 @@
     
     .greeting{
         font-size: 1.2em;
-        color: rgb(204, 16, 16);
+        color: rgb(245, 228, 228);
         text-align: center;
         margin:  auto;
         margin-top: 10vh;
@@ -66,7 +70,7 @@
     }
     .profile{
         /* border: 2px solid rgb(238, 144, 144); */
-        background-color: rgb(241, 135, 135);
+        background-color: rgb(80, 146, 113);
         height: 40vh;
         padding: 2%;
         width: 90vw;
@@ -81,12 +85,13 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
     
-    #btn1{
-        color: rgb(176, 247, 11);
+    #btn2{
+        color: rgb(56, 46, 52);
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         display: flex;
         justify-content: center;
-        background-color: rgb(90, 48, 92);
+        background-color: rgb(84, 97, 59);
+
         text-align: center;
         font-size: 1.3rem;
         width: 50vw;

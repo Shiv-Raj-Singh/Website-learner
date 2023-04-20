@@ -7,6 +7,7 @@ import ProfilePage from "./Pages/ProfilePage";
 
 export const myContext = createContext()
 export const reducer = (state , action)=>{
+  console.log(state);
   switch(action.type){
     case 'UPDATE':
        return {
